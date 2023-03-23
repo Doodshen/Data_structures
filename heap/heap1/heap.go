@@ -122,6 +122,39 @@ func CreatgeHeap(){
 		tmp.Value = value
 		myHeap.InsertHeap(&tmp)
 	}
-	fmt.Println(myHeap.list)
+	for {
+		node := myHeap.GetTop()
+		fmt.Println(node)
+	}
 	
+}
+
+//堆排序
+func (h *Heap) SortHeap(heaps []*Node){
+	length := len(heaps)
+	length = length-1
+	if length ==1 {
+		return
+	}
+
+	if length ==2{{
+		h.up(length-1)
+	}
+
+	if length>0{
+		h.SliceNodeSwap(1,length)
+		length--
+		h.down(length,1)
+	}
+
+
+	//反序 基于上面的堆排序 将已经排好的 进行反过来
+	minpos := 1
+	maxpos := h.length
+	for minpos < maxpos{
+		h.SliceNodeSwap(minpos,maxpos)
+		minpos++
+		maxpos--
+	}
+}
 }
